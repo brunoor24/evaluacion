@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 
 @RestController
@@ -20,7 +21,7 @@ class AttendeeController {
     }
 
     @PostMapping
-    fun save(@RequestBody attendee: Attendee):Attendee? {
+    fun save(@RequestBody @Valid attendee: Attendee):Attendee? {
         return attendeeService.save(attendee)
     }
 

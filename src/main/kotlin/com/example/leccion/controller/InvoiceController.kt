@@ -1,12 +1,12 @@
 package com.example.leccion.controller
 
 import com.example.leccion.model.Invoice
-import com.example.leccion.service.AttendeeService
 import com.example.leccion.service.InvoiceService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 
 @RestController
@@ -22,7 +22,7 @@ class InvoiceController {
     }
 
     @PostMapping
-    fun save(@RequestBody invoice: Invoice):Invoice? {
+    fun save(@RequestBody @Valid invoice: Invoice):Invoice? {
         return invoiceService.save(invoice)
     }
 
